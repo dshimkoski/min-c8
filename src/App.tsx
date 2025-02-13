@@ -9,5 +9,5 @@ export default function App() {
       .then((data) => setData(data));
   }, []);
 
-  return <div>{data ? JSON.stringify(data) : 'Loading...'}</div>;
+  return <div>{  data ? JSON.stringify(data) : 'Loading...'  }</div>;
 }
