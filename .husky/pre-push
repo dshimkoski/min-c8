@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/../node_modules/.bin/husky"
+FILES=$(git diff --name-only --cached -- '*.tsx' '*.ts')
+if [ -n "$FILES" ]; then
+  echo 'Running tests on affected files:'
+  echo "$FILES"
+  npm test -- --coverage --collectCoverageFrom="$FILES"
+fi
