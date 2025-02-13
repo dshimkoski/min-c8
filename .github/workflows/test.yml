@@ -18,6 +18,7 @@ jobs:
       - name: Get changed files
         id: changed-files
         run: |
+          git fetch origin ${{ github.base_ref }}
           FILES=$(git diff --name-only origin/${{ github.base_ref }} -- '*.tsx' '*.ts')
           echo "FILES=$FILES" >> $GITHUB_ENV
       - name: Run tests on affected files
